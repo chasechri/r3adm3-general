@@ -41,7 +41,13 @@ const promptQuestions = (readmeData) => {
       type: "checkbox",
       name: "license",
       message: "Choose a license for your project",
-      choices: [],
+      choices: [
+        "The MIT License",
+        "Apache License",
+        "BSD License",
+        "GPL License",
+        "Mozilla Public License",
+      ],
     },
     {
       type: "input",
@@ -58,7 +64,7 @@ const promptQuestions = (readmeData) => {
 
 promptQuestions().then((readmeData) => {
   const pageReadme = generatePage(readmeData);
-  fs.writeFile("README.md", pageReadme, (err) => {
+  fs.writeFile("./readme.folder/README.md", pageReadme, (err) => {
     if (err) throw err;
 
     console.log("README complete! Check out README to see the output!");
