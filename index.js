@@ -64,9 +64,11 @@ const promptQuestions = (readmeData) => {
 
 promptQuestions().then((readmeData) => {
   const pageReadme = generatePage(readmeData);
-  fs.writeFile("./readme.folder/README.md", pageReadme, (err) => {
-    if (err) throw err;
+  fs.mkdir("./dist", () => {
+    fs.writeFile("./dist/README.md", pageReadme, (err) => {
+      if (err) throw err;
 
-    console.log("README complete! Check out README to see the output!");
+      console.log("README complete! Check out README to see the output!");
+    });
   });
 });
