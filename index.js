@@ -4,6 +4,7 @@ const fs = require("fs");
 
 const generatePage = require("./src/generateMarkdown.js");
 
+// Questions
 const promptQuestions = (readmeData) => {
   return inquirer.prompt([
     {
@@ -61,6 +62,8 @@ const promptQuestions = (readmeData) => {
     },
   ]);
 };
+
+// generates readme and dist folder
 
 promptQuestions().then((readmeData) => {
   const pageReadme = generatePage(readmeData);
